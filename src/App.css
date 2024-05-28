@@ -1,7 +1,6 @@
 *{
   font-family: sans-serif;
   animation: transitionIn 0.7s;
-  
 }
 
 @keyframes transitionIn{
@@ -16,11 +15,13 @@
 }
 
 body{
-  background-image: url("https://img.freepik.com/free-psd/entrance-emergency-room-hospital-generative-ai_587448-2242.jpg?t=st=1716810155~exp=1716813755~hmac=01fc0ccc083efb0d36a2de3510612ea6aac2c88399a208278d27501b7a975de9&w=2000");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("https://preview.free3d.com/img/2017/07/2408200291309585928/swv4ohww.jpg");
+  
+
   background-position: center;
-  height: 100vh;
+  width: 100%;
+  height:100vh;
+  /* height: calc(150- 50px); */
 }
 
 #logo{
@@ -52,7 +53,7 @@ body{
   display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
-  color: white;
+  color: black;
   font-weight: bolder;
   font-size: 20px;
 }
@@ -129,7 +130,7 @@ padding: 8px;
 
 }
 td{
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -153,15 +154,23 @@ button:hover{
   background-color: grey;
   transform: scale(1.05);
 }
+
 h2
 {
-  color:rgb(254, 254, 254);
-  font-size: 30px;
-  margin-top: 0%;
+  color:black;
+  font-size: 45px;
+  margin-top: 2%;
 }
 
+
+.selectDoctor{
+  margin-top: -8px;
+  font-size: 25px;
+  color: black;
+  font-weight: bolder;
+}
 .form-label{
-  color: white;
+  color: black;
   margin-top: 3px;
   font-size: x-large;
   margin-right: 10px;
@@ -176,4 +185,22 @@ p{
   font-weight: bolder;
   font-size: 20px;
   margin-top: -7px;
+}
+
+.update-grp{
+  margin-top: 10px;
+}
+
+.update-btn{
+  margin-right: 14px;
+}
+
+.doc{
+  color: black;
+  font-size: 35px;
+  margin-bottom: -10px;
+}
+
+.doc-details{
+  color: black;
 }

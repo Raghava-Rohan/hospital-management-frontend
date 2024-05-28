@@ -22,12 +22,12 @@ const Doctor = () => {
   return (
     <div>
       <center>
-      <h1>Doctors</h1>
+      <h1 className='doc'>Doctors</h1>
       {
         doctors.map(doctor => (
           <div key={doctor.id}>
-              <p><strong>{doctor.name}</strong>- {doctor.specialization}</p>
-              <p>Doctor ID : {doctor.id}</p>
+              <p className='doc-details'><strong>{doctor.name}</strong>- {doctor.specialization}</p>
+              <p className='doc-details'>Doctor ID : {doctor.id}</p>
           </div>
         ))
       }

@@ -64,7 +64,7 @@ const Home = () => {
     <center>
       <div>
         <h2>Patients</h2>
-        <label>Select Doctor: </label>
+        <label className='selectDoctor'>Select Doctor: </label>
         <select onChange={handleDoctorChange} defaultValue="null">
           <option value="null">All Doctors</option>
           {doctors.map((doctor) => (

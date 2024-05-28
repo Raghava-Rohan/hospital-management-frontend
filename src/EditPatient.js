@@ -51,12 +51,17 @@ const EditPatient = ({ patientId, onClose , onUpdate}) => {
 
       <label>Disease :</label>
       <input type="text" name="disease" value={patientData.disease || ""} onChange={handleChange}/>
+      <br/>
 
       {/* <label>DoctorId :</label>
       <input type="text" name="name" value={patientData.doctorid || ""} onChange={handleChange}/> */}
 
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={onClose}>Cancel</button>
+        <div className="update-grp">
+          <button onClick={handleUpdate} className="update-btn">Update</button>
+          <button onClick={onClose}>Cancel</button>
+        </div>
+
+      
     </div>
   )
 
