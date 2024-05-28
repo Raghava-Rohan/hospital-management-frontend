@@ -1,6 +1,7 @@
 *{
   font-family: sans-serif;
   animation: transitionIn 0.7s;
+  
 }
 
 @keyframes transitionIn{
@@ -15,24 +16,27 @@
 }
 
 body{
-  background-image: url("https://img.freepik.com/free-vector/people-walking-sitting-hospital-building-city-clinic-glass-exterior-flat-vector-illustration-medical-help-emergency-architecture-healthcare-concept_74855-10130.jpg?t=st=1715942820~exp=1715946420~hmac=eb2ba9c52c4d6fa24bf5fefc89870e1f3172e5748680f31d51d28b9248b7256a&w=1480");
+  background-image: url("https://img.freepik.com/free-psd/entrance-emergency-room-hospital-generative-ai_587448-2242.jpg?t=st=1716810155~exp=1716813755~hmac=01fc0ccc083efb0d36a2de3510612ea6aac2c88399a208278d27501b7a975de9&w=2000");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
 #logo{
   position: fixed;
   left: 50px;
-  color: blue;
+  color: #7adcff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 900;
   cursor: default;
   display: inline-block;
   padding: 10px 20px;
+  font-size: 30px;
 }
 
 #logo span{
-  color: black;
+  color: white;
 }
 
 .navbar{
@@ -48,11 +52,13 @@ body{
   display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
-  color: black;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .navbar a:hover{
-  color: white;
+  color: rgba(152, 232, 252, 0.914);
 }
 
 .App{
@@ -120,6 +126,11 @@ th, td{
 border: 1px solid #dddddd;
 text-align: center;
 padding: 8px;
+
+}
+td{
+  color: white;
+  font-weight: bold;
 }
 
 th{
@@ -141,4 +152,28 @@ button{
 button:hover{
   background-color: grey;
   transform: scale(1.05);
+}
+h2
+{
+  color:rgb(254, 254, 254);
+  font-size: 30px;
+  margin-top: 0%;
+}
+
+.form-label{
+  color: white;
+  margin-top: 3px;
+  font-size: x-large;
+  margin-right: 10px;
+}
+
+.grp{
+  margin-top: 6%;
+}
+
+p{
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: -7px;
 }

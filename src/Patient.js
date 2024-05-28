@@ -8,19 +8,25 @@ const PatientForm = () => {
     gender:"",
     age:"",
     disease:"",
-    doctorId:null,
+    doctor:{
+      id:0
+    }
   })
 
   const handleChange = (e) => {
     const{name,value} = e.target;
-    setPatientData({...patientData,[name]:value});
+    if (name === 'doctorId') {
+      setPatientData({ ...patientData, doctor: { ...patientData.doctor, id: value } });
+    } else {
+      setPatientData({ ...patientData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try{
-      const response = await axios.post("https://backendhospital-ji3g.onrender.com/patients",patientData);
+      const response = await axios.post("http://localhost:5000/patient",patientData);
       console.log("Patient Created : ",response.data);
     }catch (error){
       console.error("Error Creating patient :",error);
@@ -31,35 +37,35 @@ const PatientForm = () => {
     <center>
       <div>
         <h2>Create New Patient</h2>
-        <form onSubmit={handleSubmit}>
+        <form  className="grp" onSubmit={handleSubmit}>
           <label>
-            Name :
+           <span className="form-label"> Name :</span>
             <input type="text" name="name" value={patientData.name} onChange={handleChange} required/>
           </label>
           <br/>
           <label>
-            Weight :
+          <span className="form-label"> Weight :</span>
             <input type="text" name="weight" value={patientData.weight} onChange={handleChange} required/>
           </label>
           <br/>
           <label>
-            Gender :
+          <span className="form-label"> Gender :</span>
             <input type="text" name="gender" value={patientData.gender} onChange={handleChange} required/>
           </label>
           <br/>
           <label>
-             Age :
+          <span className="form-label"> Age :</span>
             <input type="text" name="age" value={patientData.age} onChange={handleChange} required/>
           </label>
           <br/>
           <label>
-            Disease :
+          <span className="form-label"> Disease :</span>
             <input type="text" name="disease" value={patientData.disease} onChange={handleChange} required/>
           </label>
           <br/>
           <label>
-            Doctor ID :
-            <input type="text" name="doctorId" value={patientData.doctorId} onChange={handleChange} required/>
+          <span className="form-label"> DoctorId :</span>
+            <input type="text" name="doctorId" value={patientData.doctor.id} onChange={handleChange} required/>
           </label>
           <br/>
           <button type="submit">Create Patient</button>

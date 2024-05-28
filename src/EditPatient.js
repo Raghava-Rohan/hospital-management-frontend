@@ -8,7 +8,7 @@ const EditPatient = ({ patientId, onClose , onUpdate}) => {
     //get
     const fetchPatientData = async () => {
       try{
-        const response = await axios.get(`https://backendhospital-ji3g.onrender.com/patients/${patientId}`);
+        const response = await axios.get(`http://localhost:5000/patient/${patientId}`);
         setPatientData(response.data);
       }catch(error){
         console.error('Error fetching patient Data for Editing :',error);
@@ -20,7 +20,7 @@ const EditPatient = ({ patientId, onClose , onUpdate}) => {
 
   const handleUpdate = async () => {
     try{
-      await axios.put(`https://backendhospital-ji3g.onrender.com/patients/${patientId}`,patientData);
+      await axios.put(`http://localhost:5000/patient/${patientId}`,patientData);
       onClose();
       onUpdate();
     }catch (error){
@@ -41,16 +41,16 @@ const EditPatient = ({ patientId, onClose , onUpdate}) => {
       <input type="text" name="name" value={patientData.name || ""} onChange={handleChange}/>
 
       <label>Weight :</label>
-      <input type="text" name="name" value={patientData.weight || ""} onChange={handleChange}/>
+      <input type="text" name="weight" value={patientData.weight || ""} onChange={handleChange}/>
 
       <label>Gender :</label>
-      <input type="text" name="name" value={patientData.gender || ""} onChange={handleChange}/>
+      <input type="text" name="gender" value={patientData.gender || ""} onChange={handleChange}/>
 
       <label>Age :</label>
-      <input type="text" name="name" value={patientData.age || ""} onChange={handleChange}/>
+      <input type="text" name="age" value={patientData.age || ""} onChange={handleChange}/>
 
       <label>Disease :</label>
-      <input type="text" name="name" value={patientData.disease || ""} onChange={handleChange}/>
+      <input type="text" name="disease" value={patientData.disease || ""} onChange={handleChange}/>
 
       {/* <label>DoctorId :</label>
       <input type="text" name="name" value={patientData.doctorid || ""} onChange={handleChange}/> */}

@@ -13,24 +13,27 @@ const Home = () => {
   useEffect(() => {
     const fetchPatientAndDoctors = async () => {
       try{
-        const patientsResponse = await axios.get("https://backendhospital-ji3g.onrender.com/patients");
-        const doctorsResponse = await axios.get("https://backendhospital-ji3g.onrender.com/doctors");
+        const patientsResponse = await axios.get("http://localhost:5000/patient");
+        const doctorsResponse = await axios.get("http://localhost:5000/doctor");
         setPatients(patientsResponse.data);
         setDoctors(doctorsResponse.data);
       }catch(error){
         console.error("error fetching data: ",error);
       }
     };
+    fetchPatientAndDoctors();
   })
+  
 
   const handleDoctorChange = (event) => {
     const selectedDoctorId = parseInt(event.target.value);
     setSelectedDoctorId(selectedDoctorId);
   }
-
-  const filteredPatient = selectedDoctorId
-  ? patients.filter(patient => patient.doctor?.id === selectedDoctorId):patients;
-
+   
+  const filteredPatients = selectedDoctorId
+    ? patients.filter(patient => patient.doctor?.id === selectedDoctorId)
+    : patients;
+    
   const handleEdit = (patientId) => {
     setEditPatientId(patientId);
   };
@@ -42,10 +45,14 @@ const Home = () => {
   const handleUpdate = () =>{
     setEditPatientId(null);
   }
+  // const filteredPatients = selectedDoctorId
+  //   ? patients.filter(patient => patient.doctor?.id === selectedDoctorId)
+  //   : patients;
+
 
   const handleDelete = async (patientId) => {
     try {
-      await axios.delete(`https://backendhospital-ji3g.onrender.com/patients/${patientId}`);
+      await axios.delete(`http://localhost:5000/patient/${patientId}`);
 
       setPatients((prevPatients) => prevPatients.filter((patient) => patient.id !== patientId));
     } catch (error) {
@@ -57,11 +64,13 @@ const Home = () => {
     <center>
       <div>
         <h2>Patients</h2>
-        <label>Select Doctor :</label>
-        <select onChange={handleDoctorChange}>
-          <option value={null}>All Doctors</option>
+        <label>Select Doctor: </label>
+        <select onChange={handleDoctorChange} defaultValue="null">
+          <option value="null">All Doctors</option>
           {doctors.map((doctor) => (
-            <option key={doctor.id} value={doctor.id}> {doctor.name} - {doctor.specialization}</option>
+            <option key={doctor.id} value={doctor.id}>
+              {doctor.name} - {doctor.speciality}
+            </option>
           ))}
         </select>
 
@@ -74,10 +83,12 @@ const Home = () => {
               <th>Age</th>
               <th>Disease</th>
               <th>Doctor</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {filteredPatient.map((patient) => (
+            {filteredPatients.map((patient) => (
               <tr key={patient.id}>
                 <td>{patient.name}</td>
                 <td>{patient.weight}</td>
@@ -85,7 +96,8 @@ const Home = () => {
                 <td>{patient.age}</td>
                 <td>{patient.disease}</td>
                 <td>
-                  {patient.doctor?.name} - {patient.doctor?.specialization}
+                  {patient.doctor?.name ? patient.doctor.name : 'Unknown Doctor'} - 
+                  {patient.doctor?.speciality ? patient.doctor.speciality : 'Unknown Speciality'}
                 </td>
                 <td>
                   <button onClick={() => handleEdit(patient.id)}>Edit</button>
@@ -106,8 +118,9 @@ const Home = () => {
           />
         )}
       </div>
-    </center> 
-  )
-}
+    </center>
+  );
+};
+
 
 export default Home

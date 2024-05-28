@@ -8,7 +8,7 @@ const Doctor = () => {
     //get
     const fetchDoctors = async() => {
       try{
-        const response = await axios.get("https://backendhospital-ji3g.onrender.com/doctors");
+        const response = await axios.get("http://localhost:5000/doctor");
         setDoctors(response.data);
       }catch (error) {
         console.error("Error fetcching Doctors : ",error);
