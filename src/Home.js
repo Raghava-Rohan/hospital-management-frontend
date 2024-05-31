@@ -13,8 +13,8 @@ const Home = () => {
   useEffect(() => {
     const fetchPatientAndDoctors = async () => {
       try{
-        const patientsResponse = await axios.get("http://localhost:5000/patient");
-        const doctorsResponse = await axios.get("http://localhost:5000/doctor");
+        const patientsResponse = await axios.get("http://doctorsproject-env.eba-jgit9dpi.eu-north-1.elasticbeanstalk.com/patient");
+        const doctorsResponse = await axios.get("http://doctorsproject-env.eba-jgit9dpi.eu-north-1.elasticbeanstalk.com/doctor");
         setPatients(patientsResponse.data);
         setDoctors(doctorsResponse.data);
       }catch(error){
@@ -52,7 +52,7 @@ const Home = () => {
 
   const handleDelete = async (patientId) => {
     try {
-      await axios.delete(`http://localhost:5000/patient/${patientId}`);
+      await axios.delete(`http://doctorsproject-env.eba-jgit9dpi.eu-north-1.elasticbeanstalk.com/patient/${patientId}`);
 
       setPatients((prevPatients) => prevPatients.filter((patient) => patient.id !== patientId));
     } catch (error) {

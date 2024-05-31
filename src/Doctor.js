@@ -8,7 +8,7 @@ const Doctor = () => {
     //get
     const fetchDoctors = async() => {
       try{
-        const response = await axios.get("http://localhost:5000/doctor");
+        const response = await axios.get("http://doctorsproject-env.eba-jgit9dpi.eu-north-1.elasticbeanstalk.com/doctor");
         setDoctors(response.data);
       }catch (error) {
         console.error("Error fetcching Doctors : ",error);
@@ -26,7 +26,7 @@ const Doctor = () => {
       {
         doctors.map(doctor => (
           <div key={doctor.id}>
-              <p className='doc-details'><strong>{doctor.name}</strong>- {doctor.specialization}</p>
+              <p className='doc-details'><strong>{doctor.name}</strong>- {doctor.speciality}</p>
               <p className='doc-details'>Doctor ID : {doctor.id}</p>
           </div>
         ))
